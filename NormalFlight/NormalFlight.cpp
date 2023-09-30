@@ -8,41 +8,41 @@ int main()
     // Изменение кодировки терминала:
     system("chcp 1251 > nul");
 
-    int height = 0;
+    int height = 0;                  // Объявляем и инициализируем переменные для записи высоты и скорости полёта самолёта
     int speed = 0;
-    int const heightMin = 9000;
+    int const heightMin = 9000;      // Объявляем и инициализируем константные переменные параметров нормального эшелона
     int const heightMax = 9500;
     int const speedMin = 750;
     int const speedMax = 850;
 
-    cout << endl;
+    cout << endl;                                 // Запрашиваем и записываем в пременные высоту и скорость полёта
     cout << " Введите высоту полёта самолёта: ";
     cin >> height;
     cout << " Введите скорость самолёта: ";
     cin >> speed;
 
-    if (height <= 0 || speed <= 0) {
+    if (height <= 0 || speed <= 0) {                            // Проверяем не введены-ли нулевые значения, если да то выводим SOS
         cout << " Самолёт потерпел крушение!!!SOS!!!" << endl;
     }
     else {
-        if (height < heightMin) {
+        if (height < heightMin) {                              // Проверяем высоту полёта относительно минимальной высоты эшелона
             cout << " У вас низкая высота, необходимо поднятся минимум на " << heightMin - height << " метров!" << endl;
         }
         else {
-            if (height > heightMax) {
+            if (height > heightMax) {                          // Проверяем высоту полёта относительно максимальной высоты эшелона
                 cout << " Вы летите слишком высоко, необходимо спуститься минимум на " << height - heightMax << " метров!" << endl;
             }
         }
-        if (speed < speedMin) {
+        if (speed < speedMin) {                                // Проверяем высоту полёта относительно минимальной скорости эшелона
             cout << " У вас низкая скорость, необходимо ускориться минимум на " << speedMin - speed << " км/ч!" << endl;
         }
         else {
-            if (speed > speedMax) {
+            if (speed > speedMax) {                            // Проверяем высоту полёта относительно максимальной скорости эшелона
                 cout << " Вы летите слишком ,scnhj, необходимо снизить скорость минимум на " << speed - speedMax << " км/ч!" << endl;
             }
         }
     }
-    if ((height >= heightMin && height <= heightMax) && (speed >= speedMin && speed <= speedMax)) {
+    if ((height >= heightMin && height <= heightMax) && (speed >= speedMin && speed <= speedMax)) { // Если все параметры в пределах нормы выводим сообщение
         cout << " Полёт нормальный, продолжаем движение!!!" << endl;
     }
 
